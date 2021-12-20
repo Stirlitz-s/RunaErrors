@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.function.Function;
 
 public class Errors {
-    private static Set<SystemError> systemErrors = new ConcurrentSkipListSet<>();
+    private static Set<SystemError> systemErrors = Collections.synchronizedSet(new LinkedHashSet<>());
 
 
     /* Этот метод остался без изменений. 
@@ -42,7 +42,7 @@ public class Errors {
         synchronized (systemErrors) {
             System.out.println("Actual tree size - " + systemErrors.size());
             List<SystemError> list = new ArrayList<>(systemErrors);
-         //   list = Lists.reverse(list);
+            list = Lists.reverse(list);
      //       Collections.sort(list);
             return list;
         }
@@ -81,7 +81,7 @@ public class Errors {
         SystemError toDeleteSystemError = new SystemError();
         toDeleteSystemError.setMessage(errorMessage);
         synchronized (systemErrors) {
-            System.out.println(systemErrors.remove(toDeleteSystemError));
+            systemErrors.remove(toDeleteSystemError);
         }
     }
 

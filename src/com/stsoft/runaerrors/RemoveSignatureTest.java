@@ -34,8 +34,8 @@ class RemoveSignatureTest {
         
         for (int i = 0; i < MAX_NUM_ERRORS; i++) {
             if (i % 2 == 0) {
-                //Errors.removeSystemErrorOptimized("mess" + i);
-                Errors.removeSystemError("mess" + i);
+                Errors.removeSystemErrorOptimized("mess" + i);
+            //    Errors.removeSystemError("mess" + i);
             }
         }
         
