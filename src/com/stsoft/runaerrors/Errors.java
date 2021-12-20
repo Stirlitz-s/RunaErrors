@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.function.Function;
 
 public class Errors {
+    
     private static Set<SystemError> systemErrors = new ConcurrentSkipListSet<>();
 
 
